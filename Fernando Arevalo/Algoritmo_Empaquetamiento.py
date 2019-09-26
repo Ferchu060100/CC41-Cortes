@@ -201,10 +201,10 @@ def FindPositionForBestFit(ancho,largo,mejorArea,mejorAjusteLateral):
 
 def LimpiarRectangulosdelaLista():
     n = len(freeRectangles)
-    for i in range (0,i<n-1,i=i+1):
-        if(freeRectangles[i].coordX == freeRectangles[i+1].coordX and freeRectangles[i].coordY == freeRectangles[i+1].coordY and freeRectangles[i].ancho == freeRectangles[i].largo and freeRectangles[i].largo == freeRectangles[i+1].largo):
-            freeRectangles.remove(freeRectangles[i])
-            i=i-1
+    for m in range (0,m<n-1,m=m+1):
+        if(freeRectangles[m].coordX == freeRectangles[m+1].coordX and freeRectangles[m].coordY == freeRectangles[m+1].coordY and freeRectangles[m].ancho == freeRectangles[m].largo and freeRectangles[m].largo == freeRectangles[m+1].largo):
+            freeRectangles.remove(freeRectangles[m])
+            m=m-1
 
 def ScoreRect(ancho,largo,score1,score2):
     newRect = Pieza(" ",ancho,largo)
@@ -244,7 +244,7 @@ def InsertarRects(ancho,largo):
             i = i-1
             n = n-1    
     
-    LimpiarRectangulosdelaLista()
+    ##LimpiarRectangulosdelaLista()
     usedRectangles.append(newRect)
     return newRect
     
@@ -257,7 +257,7 @@ for l in range(cantP):
     
 
 # Informar Piezas
-for fig in piezas:
+for fig in usedRectangles:
         fig.Informar()
 
 # Mostrar Piezas       
@@ -275,7 +275,7 @@ codes = [
 
 fig , ax = plt . subplots ()
 
-for fig in piezasord:
+for fig in usedRectangles:
     verts = [
         ( fig.coordX , fig.coordY ),  # Xo , Yo
         ( fig.coordX , fig.coordY+ fig.ancho ),  # Xo , Yo + ancho
